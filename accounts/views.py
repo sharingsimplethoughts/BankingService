@@ -10,26 +10,26 @@ from .serializers import *
 
 class RegisterUserView(APIView):
     def post(self,request,*args,**kwargs):
-        try:
-            serializer=RegisterUserSerializer(data=request.data,context={'request':request})
-            if serializer.is_valid():
-                serializer.save()
-                return Response({
-                    'success':'True',
-                    'message':'Registration successfull',
-                    'data':serializer.data,
-                },200)
+        # try:
+        serializer=RegisterUserSerializer(data=request.data,context={'request':request})
+        if serializer.is_valid():
+            serializer.save()
             return Response({
-                'success':'False',
-                'message':serializer.errors,
-            },400)
-        except APIException as e:
-            raise e
-        except Exception as e:
-            return Response({
-                'success':'False',
-                'message':'Registration was unsuccessfull',
-            },400)
+                'success':'True',
+                'message':'Registration successfull',
+                'data':serializer.data,
+            },200)
+        return Response({
+            'success':'False',
+            'message':serializer.errors,
+        },400)
+        # except APIException as e:
+        #     raise e
+        # except Exception as e:
+        #     return Response({
+        #         'success':'False',
+        #         'message':'Registration was unsuccessfull',
+        #     },400)
 
 class LoginView(APIView):
     permission_classes=[AllowAny]

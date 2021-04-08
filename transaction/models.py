@@ -7,7 +7,7 @@ payment_mode_choices = (('1','Cash'),('2','Online'))
 payment_status_choices = (('1','Success'),('2','Failed'))
 
 class Transaction(models.Model):
-	tid = models.CharField(max_length=10)
+	tid = models.CharField(max_length=20)
 	user_account = models.ForeignKey(UserAccount,on_delete=models.CASCADE,related_name='t_user')
 	earlier_balance = models.DecimalField(max_digits=20,decimal_places=2, default=0.00)
 	amount = models.DecimalField(max_digits=15,decimal_places=2, default=0.00)

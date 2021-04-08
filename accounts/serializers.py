@@ -227,7 +227,7 @@ class RegisterUserSerializer(serializers.ModelSerializer):
             ua.save()
 
             t = Transaction(
-                tid = generatetid(10),
+                tid = generatetid(5),
                 user_account = ua,
                 earlier_balance = 0.00,
                 amount = ua.balance,

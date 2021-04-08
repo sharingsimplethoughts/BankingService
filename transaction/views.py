@@ -90,7 +90,7 @@ class TransactionView(APIView):
 				ua.save()
 
 				t = Transaction(
-					tid = generatetid(10),
+					tid = generatetid(5),
 					user_account = ua,
 					earlier_balance = earlier_balance,
 					amount = float(amount),
